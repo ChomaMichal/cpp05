@@ -1,13 +1,13 @@
 #include "Burecraut.hpp"
 
-class GradeTooHighException : public std::exception {
+class Burecraut::GradeTooHighException : public std::exception {
 public:
     const char* what() const noexcept override {
         return "Grade is too high!\n";
     }
 };
 
-class GradeTooLowException : public std::exception {
+class Burecraut::GradeTooLowException : public std::exception {
 public:
     const char* what() const noexcept override {
         return "Grade is too low!\n";
@@ -20,9 +20,9 @@ Burecraut::Burecraut(const Burecraut& other): name(other.name), grade(other.grad
 
 Burecraut::Burecraut(std::string name, int grade) : name(name){
 	if (grade < 1)
-		throw GradeTooLowException();
-	if (grade > 150)
 		throw GradeTooHighException();
+	if (grade > 150)
+		throw GradeTooLowException();
 	this->grade = grade;
 	std::cout << "Burecrat " << this->name << " with grade " << this->grade;
 	std::cout << " was undied" << std::endl;
@@ -40,9 +40,9 @@ void	Burecraut::decrementGrade(int i)
 	
 	tmp = this->grade - i;
 	if (tmp < 1)
-		throw GradeTooLowException();
-	if (tmp > 150)
 		throw GradeTooHighException();
+	if (tmp > 150)
+		throw GradeTooLowException();
 	this->grade = tmp;
 }
 
@@ -52,9 +52,9 @@ void	Burecraut::incrementGrade(int i)
 	
 	tmp = this->grade + i;
 	if (tmp < 1)
-		throw GradeTooLowException();
-	if (tmp > 150)
 		throw GradeTooHighException();
+	if (tmp > 150)
+		throw GradeTooLowException();
 	this->grade = tmp;
 }
 

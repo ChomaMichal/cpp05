@@ -15,6 +15,8 @@ class Burecraut{
 		int					getGrade(void) const;
 		void				incrementGrade(int i);
 		void				decrementGrade(int i);
+		class GradeTooHighException;
+		class GradeTooLowException;
 	private:
 		const std::string	name;
 		int					grade;
