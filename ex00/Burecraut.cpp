@@ -1,18 +1,12 @@
 #include "Burecraut.hpp"
 
-class Burecraut::GradeTooHighException : public std::exception {
-public:
-    const char* what() const noexcept override {
-        return "Grade is too high!\n";
-    }
-};
+const char* Burecraut::GradeTooHighException::what() const noexcept{
+ 	return "Grade is too high!\n";
+}
 
-class Burecraut::GradeTooLowException : public std::exception {
-public:
-    const char* what() const noexcept override {
-        return "Grade is too low!\n";
-    }
-};
+const char* Burecraut::GradeTooLowException::what() const noexcept{
+	return "Grade is too low!\n";
+}
 
 Burecraut::Burecraut(): name("Hermes Conrad"), grade(35){}
 
