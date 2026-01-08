@@ -28,7 +28,8 @@ AForm::AForm(const AForm& other):
 	name(other.name),
 	sig(other.sig),
 	grade_to_sign(other.grade_to_sign),
-	grade_to_execute(other.grade_to_execute)
+	grade_to_execute(other.grade_to_execute),
+	target(other.target)
 {}
 
 AForm::~AForm(){
@@ -70,7 +71,7 @@ const std::string	AForm::get_target(void) const{
 	return (this->name);
 }
 
-void	AForm::beSigned(Burecraut &signer){
+void	AForm::beSigned(Bureaucrat &signer){
 	if (signer.getGrade() <= this->grade_to_sign){
 		this->sig = true;
 		std::cout << "AForm: " << this->name << " was signed by "

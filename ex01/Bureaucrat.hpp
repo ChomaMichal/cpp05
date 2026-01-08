@@ -7,13 +7,13 @@
 class Form;
 
 
-class Burecraut{
+class Bureaucrat{
 	public:
-		Burecraut();
-		Burecraut(std::string name, int grade);
-		~Burecraut();
-		Burecraut(const Burecraut& other);
-		Burecraut&	operator=(const Burecraut& other);
+		Bureaucrat();
+		Bureaucrat(std::string name, int grade);
+		~Bureaucrat();
+		Bureaucrat(const Bureaucrat& other);
+		Bureaucrat&	operator=(const Bureaucrat& other);
 		std::string	getName(void) const;
 		int			getGrade(void) const;
 		void		incrementGrade(int i);

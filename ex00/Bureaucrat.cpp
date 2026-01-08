@@ -1,18 +1,19 @@
-#include "Burecraut.hpp"
+#include "Bureaucrat.hpp"
 
-const char* Burecraut::GradeTooHighException::what() const noexcept{
+
+const char* Bureaucrat::GradeTooHighException::what() const throw(){
  	return "Grade is too high!\n";
 }
 
-const char* Burecraut::GradeTooLowException::what() const noexcept{
+const char* Bureaucrat::GradeTooLowException::what() const throw(){
 	return "Grade is too low!\n";
 }
 
-Burecraut::Burecraut(): name("Hermes Conrad"), grade(35){}
+Bureaucrat::Bureaucrat(): name("Hermes Conrad"), grade(35){}
 
-Burecraut::Burecraut(const Burecraut& other): name(other.name), grade(other.grade){}
+Bureaucrat::Bureaucrat(const Bureaucrat& other): name(other.name), grade(other.grade){}
 
-Burecraut::Burecraut(std::string name, int grade) : name(name){
+Bureaucrat::Bureaucrat(std::string name, int grade) : name(name){
 	if (grade < 1)
 		throw GradeTooHighException();
 	if (grade > 150)
@@ -22,13 +23,13 @@ Burecraut::Burecraut(std::string name, int grade) : name(name){
 	std::cout << " was undied" << std::endl;
 }
 
-Burecraut&	Burecraut::operator=(const Burecraut &other)
+Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &other)
 {
 	this->grade = other.grade;
 	return (*this);
 }
 
-void	Burecraut::decrementGrade(int i)
+void	Bureaucrat::decrementGrade(int i)
 {
 	int		tmp;
 	
@@ -40,7 +41,7 @@ void	Burecraut::decrementGrade(int i)
 	this->grade = tmp;
 }
 
-void	Burecraut::incrementGrade(int i)
+void	Bureaucrat::incrementGrade(int i)
 {
 	int		tmp;
 	
@@ -53,16 +54,16 @@ void	Burecraut::incrementGrade(int i)
 }
 
 
-Burecraut::~Burecraut(){
+Bureaucrat::~Bureaucrat(){
 	std::cout << "Burecrat " << this->name << " with grade " << this->grade;
 	std::cout << " was unundied" << std::endl;
 }
 
-int		Burecraut::getGrade(void) const{
+int		Bureaucrat::getGrade(void) const{
 	return (this->grade);
 }
 
-std::string	Burecraut::getName(void) const{
+std::string	Bureaucrat::getName(void) const{
 	return (this->name);
 }
 

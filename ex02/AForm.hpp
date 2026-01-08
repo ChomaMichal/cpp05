@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Burecraut.hpp"
+#include "Bureaucrat.hpp"
 #include <iostream>
 #include <string>
 
@@ -18,7 +18,7 @@ class AForm {
 		int					get_grade_to_execute(void)const;
 		const std::string	get_name(void)const;
 		const std::string	get_target(void)const;
-		void				beSigned(Burecraut &singer);
+		void				beSigned(Bureaucrat &singer);
 
 		class	GradeTooLowException: public std::exception{
 			public:

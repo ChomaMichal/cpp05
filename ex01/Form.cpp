@@ -62,7 +62,7 @@ const std::string	Form::get_name(void) const{
 }
 
 
-void	Form::beSigned(Burecraut &signer){
+void	Form::beSigned(Bureaucrat &signer){
 	if (signer.getGrade() <= this->grade_to_sign){
 		this->sig = true;
 		std::cout << "Form: " << this->name << " was signed by "

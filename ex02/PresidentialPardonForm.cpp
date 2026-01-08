@@ -18,7 +18,7 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 	return (*this);
 }
 
-void	PresidentialPardonForm::execute(const Burecraut &executor)const{
+void	PresidentialPardonForm::execute(const Bureaucrat &executor)const{
 	if (this->is_signed() == false){
 		throw FormNotSigned();
 	}

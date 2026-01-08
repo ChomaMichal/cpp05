@@ -10,6 +10,6 @@ public:
   ~ShrubberyCreationForm();
 
   ShrubberyCreationForm& operator=(const ShrubberyCreationForm& obj);
-  void	execute(Burecraut const &executor)const;
+  void	execute(Bureaucrat const &executor)const;
 
 };

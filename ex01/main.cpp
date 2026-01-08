@@ -1,11 +1,11 @@
-#include "Burecraut.hpp"
+#include "Bureaucrat.hpp"
 
 int main(void){
-	Burecraut Hermes;
+	Bureaucrat Hermes;
 	std::cout << Hermes.getName() << "__" << Hermes.getGrade() << std::endl;
 
 
-	Burecraut Fry("Fry", 1);
+	Bureaucrat Fry("Fry", 1);
 	std::cout << Fry.getName() << "__" << Fry.getGrade() << std::endl;
 	try{
 		Fry.decrementGrade(2);
@@ -17,7 +17,7 @@ int main(void){
 	Fry.incrementGrade(69);
 	std::cout << Fry.getName() << "__" << Fry.getGrade() << std::endl;
 
-	Burecraut Leela("Leela", 149);
+	Bureaucrat Leela("Leela", 149);
 	std::cout << Leela.getName() << "__" << Leela.getGrade() << std::endl;
 	try{
 		Fry.incrementGrade(2);
@@ -30,13 +30,13 @@ int main(void){
 	std::cout << Leela.getName() << "__" << Leela.getGrade() << std::endl;
 
 	try {
-		Burecraut Bender("Bender", 151);
+		Bureaucrat Bender("Bender", 151);
 		std::cout << Bender.getName() << "__" << Bender.getGrade() << std::endl;
 	} catch (std::exception& e){
 		std::cerr << e.what();
 	}
 	try {
-		Burecraut Bender("Bender", 0);
+		Bureaucrat Bender("Bender", 0);
 		std::cout << Bender.getName() << "__" << Bender.getGrade() << std::endl;
 	} catch (std::exception& e){
 		std::cerr << e.what();

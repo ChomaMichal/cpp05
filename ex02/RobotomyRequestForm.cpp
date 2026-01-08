@@ -20,7 +20,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 	return (*this);
 }
 
-void	RobotomyRequestForm::execute(const Burecraut &executor)const{
+void	RobotomyRequestForm::execute(const Bureaucrat &executor)const{
 	if (this->is_signed() == false){
 		throw FormNotSigned();
 	}

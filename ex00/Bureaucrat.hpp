@@ -1,16 +1,16 @@
-#ifndef BURECRAUT_HPP
-#define BURECRAUT_HPP
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 #include <string>
 #include <iostream>
 #include <exception>
 
-class Burecraut{
+class Bureaucrat{
 	public:
-		Burecraut();
-		Burecraut(std::string name, int grade);
-		~Burecraut();
-		Burecraut(const Burecraut& other);
-		Burecraut& operator=(const Burecraut& other);
+		Bureaucrat();
+		Bureaucrat(std::string name, int grade);
+		~Bureaucrat();
+		Bureaucrat(const Bureaucrat& other);
+		Bureaucrat& operator=(const Bureaucrat& other);
 		std::string			getName(void) const;
 		int					getGrade(void) const;
 		void				incrementGrade(int i);
@@ -18,11 +18,11 @@ class Burecraut{
 
 		class	GradeTooLowException: public std::exception{
 			public:
-			const char* what() const noexcept;
+			const char* what() const throw();
 		};
 		class	GradeTooHighException: public std::exception{
 			public:
-			const char* what() const noexcept;
+			const char* what() const throw();
 		};
 
 
