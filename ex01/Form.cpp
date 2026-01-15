@@ -1,10 +1,10 @@
 #include "Form.hpp"
 
-const char* Form::GradeTooHighException::what() const noexcept{
+const char* Form::GradeTooHighException::what() const throw() {
 	return "Grade is too high!\n";
 }
 
-const char* Form::GradeTooLowException::what() const noexcept{
+const char* Form::GradeTooLowException::what() const throw() {
 	return "Grade is too low!\n";
 }
 
@@ -16,7 +16,12 @@ Form::Form(const std::string name, int grade_to_sign, int grade_to_execute):
 	sig(false),
 	grade_to_sign(grade_to_sign),
 	grade_to_execute(grade_to_execute)
-{}
+{
+	if (grade_to_sign < 1 || grade_to_execute < 1)
+		throw GradeTooHighException();
+	if (grade_to_sign > 150 || grade_to_execute > 150)
+		throw GradeTooLowException();
+}
 
 
 Form::Form(const Form& other):
@@ -65,8 +70,6 @@ const std::string	Form::get_name(void) const{
 void	Form::beSigned(Bureaucrat &signer){
 	if (signer.getGrade() <= this->grade_to_sign){
 		this->sig = true;
-		std::cout << "Form: " << this->name << " was signed by "
-			<< signer.getName() << std::endl;
 		return ;
 	}
 	throw	Form::GradeTooLowException();

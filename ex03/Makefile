@@ -4,10 +4,12 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 FILES = main.cpp\
 		Bureaucrat.cpp\
 		AForm.cpp\
+		Intern.cpp\
 		ShrubberyCreationForm.cpp\
 		RobotomyRequestForm.cpp\
 		PresidentialPardonForm.cpp
-HFILES = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
+HFILES = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp Intern.hpp
+
 
 OBJ = $(FILES:.cpp=.o)
 

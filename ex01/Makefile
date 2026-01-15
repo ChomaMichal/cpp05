@@ -2,8 +2,9 @@ NAME = hermees_and_friends
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 FILES = main.cpp\
-		Burecraut.cpp
-HFILES = Burecraut.hpp
+		Bureaucrat.cpp\
+		Form.cpp
+HFILES = Bureaucrat.hpp Form.hpp
 
 OBJ = $(FILES:.cpp=.o)
 

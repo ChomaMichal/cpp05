@@ -1,11 +1,11 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-const char* Bureaucrat::GradeTooHighException::what() const noexcept{
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
  	return "Grade is too high!\n";
 }
 
-const char* Bureaucrat::GradeTooLowException::what() const noexcept{
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
 	return "Grade is too low!\n";
 }
 
@@ -68,6 +68,12 @@ std::string	Bureaucrat::getName(void) const{
 }
 
 void	Bureaucrat::signForm(Form &form){
-	form.beSigned(*this);
+	try {
+		form.beSigned(*this);
+		std::cout << this->name << " signed " << form.get_name() << std::endl;
+	} catch (Form::GradeTooLowException &e) {
+		std::cout << this->name << " couldn't sign " << form.get_name() 
+			<< " because " << e.what();
+	}
 }
 
