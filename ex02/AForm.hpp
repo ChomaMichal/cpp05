@@ -9,7 +9,7 @@ class AForm {
 		AForm();
 		AForm(const std::string &name, int grade_to_sign, int grade_to_execute, const std::string &target);
 		AForm(const AForm& obj);
-		virtual ~AForm() = 0;
+		virtual ~AForm();
 
 		AForm& operator=(const AForm& obj);
 
@@ -18,7 +18,7 @@ class AForm {
 		int					get_grade_to_execute(void)const;
 		const std::string	get_name(void)const;
 		const std::string	get_target(void)const;
-		void				beSigned(Bureaucrat &singer);
+		void				beSigned(const Bureaucrat &singer);
 		virtual void		execute(Bureaucrat const &executor) const = 0;
 
 		class	GradeTooLowException: public std::exception{

@@ -67,10 +67,10 @@ const std::string	Form::get_name(void) const{
 }
 
 
-void	Form::beSigned(Bureaucrat &signer){
-	if (signer.getGrade() <= this->grade_to_sign){
+void Form::beSigned(const Bureaucrat &signer) {
+	if (signer.getGrade() <= this->grade_to_sign) {
 		this->sig = true;
 		return ;
 	}
-	throw	Form::GradeTooLowException();
+	throw Form::GradeTooLowException();
 }

@@ -5,43 +5,46 @@
 #include "ShrubberyCreationForm.hpp"
 #include <iostream>
 
-Intern::Intern() {
-	names[0] = "robotomy request";
-	names[1] = "presidential pardon";
-	names[2] = "shrubbery creation";
-};
-Intern::~Intern() {};
+Intern::Intern() {}
+
+Intern::~Intern() {}
+
 Intern::Intern(const Intern &other) { (void)other; }
+
 Intern &Intern::operator=(const Intern &other) { (void)other; return *this; }
 
+AForm *Intern::createRobotomyRequestForm(const std::string &target) {
+	return (new RobotomyRequestForm(target));
+}
+
+AForm *Intern::createPresidentialPardonForm(const std::string &target) {
+	return (new PresidentialPardonForm(target));
+}
+
+AForm *Intern::createShrubberyCreationForm(const std::string &target) {
+	return (new ShrubberyCreationForm(target));
+}
+
 AForm *Intern::makeForm(const std::string &name, const std::string &target) {
-	int form = -1;
-	int i = 0;
-	for (; i < 3; i++) {
-		if (name == names[i])
-			form = i;
+	std::string formNames[3] = {
+		"robotomy request",
+		"presidential pardon",
+		"shrubbery creation"
+	};
+	
+	FormCreator creators[3] = {
+		&Intern::createRobotomyRequestForm,
+		&Intern::createPresidentialPardonForm,
+		&Intern::createShrubberyCreationForm
+	};
+	
+	for (int i = 0; i < 3; i++) {
+		if (name == formNames[i]) {
+			std::cout << "Intern creates " << formNames[i] << std::endl;
+			return ((this->*creators[i])(target));
+		}
 	}
-	if (form == -1) {
-		std::cerr << "Error: invalid form name \"" << name << "\"" << std::endl;
-		return (NULL);
-	}
-	switch (form) {
-	case (0): {
-		RobotomyRequestForm *ptr = new RobotomyRequestForm(target);
-		std::cout << "Intern creates RobotomyRequestForm" << std::endl;
-		return (ptr);
-	}
-	case (1): {
-		PresidentialPardonForm *ptr = new PresidentialPardonForm(target);
-		std::cout << "Intern creates PresidentialPardonForm" << std::endl;
-		return (ptr);
-	}
-	case (2): {
-		ShrubberyCreationForm *ptr = new ShrubberyCreationForm(target);
-		std::cout << "Intern creates ShrubberyCreationForm" << std::endl;
-		return (ptr);
-	}
-	}
+	
 	std::cerr << "Error: invalid form name \"" << name << "\"" << std::endl;
 	return (NULL);
 }

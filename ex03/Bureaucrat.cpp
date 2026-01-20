@@ -13,14 +13,12 @@ Bureaucrat::Bureaucrat(): name("Hermes Conrad"), grade(35){}
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other): name(other.name), grade(other.grade){}
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : name(name){
+Bureaucrat::Bureaucrat(std::string name, int grade) : name(name) {
 	if (grade < 1)
 		throw GradeTooHighException();
 	if (grade > 150)
 		throw GradeTooLowException();
 	this->grade = grade;
-	std::cout << "Burecrat " << this->name << " with grade " << this->grade;
-	std::cout << " was undied" << std::endl;
 }
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &other)
@@ -54,10 +52,7 @@ void	Bureaucrat::incrementGrade(int i)
 }
 
 
-Bureaucrat::~Bureaucrat(){
-	std::cout << "Burecrat " << this->name << " with grade " << this->grade;
-	std::cout << " was unundied" << std::endl;
-}
+Bureaucrat::~Bureaucrat() {}
 
 int		Bureaucrat::getGrade(void) const{
 	return (this->grade);

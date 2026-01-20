@@ -17,7 +17,7 @@ class Form {
 		int					get_grade_to_sign(void)const;
 		int					get_grade_to_execute(void)const;
 		const std::string	get_name(void)const;
-		void				beSigned(Bureaucrat &singer);
+		void				beSigned(const Bureaucrat &singer);
 
 		class	GradeTooLowException: public std::exception{
 			public:

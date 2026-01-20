@@ -1,24 +1,22 @@
-NAME = hermees_and_friends
+NAME = bureaucrat
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-FILES = main.cpp\
-		Burecraut.cpp
-HFILES = Burecraut.hpp
+FILES = main.cpp \
+		Bureaucrat.cpp
+HFILES = Bureaucrat.hpp
 
 OBJ = $(FILES:.cpp=.o)
 
-all : $(OBJ) $(NAME)
-	
+all : $(NAME)
 
-$(NAME): $(OBJ) $(HFILES)
-	$(CC) $(CFLAGS)  $(OBJ) -o $(NAME)
-
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 %.o : %.cpp
-	$(CC) $(CFLAGS) -c -O  $< -o $@
-	
+	$(CC) $(CFLAGS) -c $< -o $@
+
 clean :
-	rm -f $(OBJ) $(BOBJ)
+	rm -f $(OBJ)
 
 fclean : clean
 	rm -f $(NAME)

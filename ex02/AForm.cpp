@@ -32,7 +32,7 @@ AForm::AForm(const AForm& other):
 	grade_to_execute(other.grade_to_execute)
 {}
 
-AForm::~AForm(){
+AForm::~AForm() {
 }
 
 AForm& AForm::operator=(const AForm& obj){
@@ -71,10 +71,10 @@ const std::string	AForm::get_target(void) const{
 	return (this->target);
 }
 
-void	AForm::beSigned(Bureaucrat &signer){
-	if (signer.getGrade() <= this->grade_to_sign){
+void AForm::beSigned(const Bureaucrat &signer) {
+	if (signer.getGrade() <= this->grade_to_sign) {
 		this->sig = true;
 		return ;
 	}
-	throw	AForm::GradeTooLowException();
+	throw AForm::GradeTooLowException();
 }
